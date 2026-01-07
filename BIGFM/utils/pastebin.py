@@ -1,27 +1,3 @@
-u = users.find_one_and_update(
-        {"user_id": uid},
-        {
-            "$set": {
-                "user_id": uid,
-                "last_bonus": today,
-                "streak": streak,
-            },
-            "$inc": {"stars": reward},
-        },
-        upsert=True,
-        return_document=ReturnDocument.AFTER,
-    )
-
-    await msg.edit_text(
-        f"🎉 daily bonus claimed\n{LINE}\n\n"
-        f"🔥 streak: {streak} days\n"
-        f"⭐ reward: +{reward}\n"
-        f"💼 balance: {u.get('stars', 0)} ⭐\n\n"
-        f"🕒 {ts()}",
-        reply_markup=home_reply_kb()
-    )
-
-
 # ───────────────────────────────────────────────
 # withdraw panel
 # ───────────────────────────────────────────────
